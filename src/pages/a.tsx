@@ -22,7 +22,7 @@ const DashboardRoutes = () => {
     <DndProvider backend={HTML5Backend}>
       <Layout>
         <Routes>
-          <Route path="/0" element={<MainContent />} />
+          <Route path="/dashboard" element={<MainContent />} />
         </Routes>
       </Layout>
     </DndProvider>
