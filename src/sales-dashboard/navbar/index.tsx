@@ -61,7 +61,7 @@ const Navbar = () => {
           className="flex justify-between items-center space-x-2"
         >
           <div className="border">
-            {/* <div>
+            <div>
               <Controller
                 control={control}
                 name="country"
@@ -74,11 +74,15 @@ const Navbar = () => {
                       defaultValue={countryOptions[0]}
                       isSearchable
                       classNamePrefix="react-select"
+                      formatOptionLabel={formatOptionLabel}
+                      components={{
+                        DropdownIndicator: CustomDropdownIndicator,
+                      }}
                     />
                   );
                 }}
               />
-            </div> */}
+            </div>
           </div>
         </form>
       </nav>
