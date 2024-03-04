@@ -1,27 +1,35 @@
-import React from "react";
-import { v4 as uuidv4 } from "uuid";
+import React, { Suspense } from "react";
 
-import Navbar from "./sales-dashboard/navbar";
-import MainContent from "./sales-dashboard/main-content";
-import Sidebar from "./sales-dashboard/sidebar";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+import { Spinner } from "@medusajs/icons";
+import Layout from "./sales-dashboard/layout";
+import IndexPage from "./pages";
+import DashboardIndexPage from "./pages/a";
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<IndexPage />} />
+      <Route path="a/*" element={<DashboardIndexPage />} />
+    </>
+  )
+);
+
+const Loading = () => (
+  <div className="bg-grey-5 text-grey-90 flex h-screen w-full items-center justify-center">
+    <Spinner />
+  </div>
+);
 const App = () => {
   return (
-    <div>
-      <Navbar />
-      <div className="flex  ">
-        <aside className="border hidden  md:block relative ">
-          <div className="h-screen fixed  overflow-y-auto pl-3 min-w-72 ">
-            <Sidebar />
-          </div>
-        </aside>
-        <div className="relative ">
-          <main className="mt-12 px-6  fixed inset-0  md:left-72 left-0 overflow-y-auto ">
-            <MainContent />
-          </main>
-        </div>
-      </div>
-    </div>
+    <Suspense fallback={<Loading />}>
+      <RouterProvider router={router} />
+    </Suspense>
   );
 };
 
