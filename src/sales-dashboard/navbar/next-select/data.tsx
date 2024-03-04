@@ -7,10 +7,10 @@ export const countryOptions = [
   },
   {
     label: "United Kingdom",
-    flagUrl: "https://flagcdn.com/16x12/ua.png",
+    flagUrl: "https://flagcdn.com/16x12/bi.png",
   },
-  { label: "Canada", flagUrl: "https://flagcdn.com/16x12/ua.png" },
-  // Add more countries as needed
+  { label: "Canada", flagUrl: "https://flagcdn.com/16x12/af.png" },
+
 ];
 
 export interface ColourOption {

@@ -1,51 +1,23 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import Select, { StylesConfig, components } from "react-select";
+import { countryOptions } from "./next-select/data";
 
-import { colourOptions, countryOptions } from "./next-select/data";
-import chroma from "chroma-js";
-import { MagnifyingGlass, TriangleDownMini } from "@medusajs/icons";
+interface FormatOptionLabelProps {
+  label: string;
+  flagUrl: string;
+}
 
-const countryStyles: StylesConfig = {
-  control: (baseStyle, state) => {
-    return {
-      ...baseStyle,
-      fontSize: "16px",
-      height: "64px",
-      borderRadius: "8px",
-      paddingLeft: "20px",
-      paddingRight: "20px",
-      borderColor: "#AFAFAF",
-      boxShadow: "none",
-      "&:hover": {
-        borderColor: "#dddddd",
-      },
-    };
-  },
-};
-const CustomDropdownIndicator = (props) => {
+const formatOptionLabel: React.FC<FormatOptionLabelProps> = (props) => {
   return (
-    <CustomDropdownIndicator {...props}>
-      <TriangleDownMini />
-    </CustomDropdownIndicator>
+    <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+      <div>
+        <img src={props?.flagUrl} width="16" height="12" alt="Ukraine" />
+      </div>
+      {props.label}
+    </div>
   );
 };
-
-const formatOptionLabel = ({ label }: { label: string }) => (
-  <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-    <div>
-      <img
-        src="https://flagcdn.com/16x12/ua.png"
-        srcSet="https://flagcdn.com/32x24/ua.png 2x,
-    https://flagcdn.com/48x36/ua.png 3x"
-        width="16"
-        height="12"
-        alt="Ukraine"
-      />
-    </div>
-    {label}
-  </div>
-);
 const Navbar = () => {
   const { control, handleSubmit } = useForm();
 
@@ -60,7 +32,7 @@ const Navbar = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex justify-between items-center space-x-2"
         >
-          <div className="border">
+          <div className="">
             <div>
               <Controller
                 control={control}
@@ -70,13 +42,78 @@ const Navbar = () => {
                     <Select
                       value={value}
                       onChange={onChange}
-                      options={colourOptions}
+                      options={countryOptions}
                       defaultValue={countryOptions[0]}
-                      isSearchable
+                      isSearchable={true}
                       classNamePrefix="react-select"
                       formatOptionLabel={formatOptionLabel}
-                      components={{
-                        DropdownIndicator: CustomDropdownIndicator,
+                      styles={{
+                        container(base, props) {
+                          return {
+                            ...base,
+                            width: "200px",
+                            borderStyle: "none",
+                          };
+                        },
+                        control: (provided, state) => {
+                          return {
+                            ...provided,
+
+                            borderColor: "#AFAFAF",
+                            borderRadius: "8px",
+                            boxShadow: "none",
+                            "&:hover": {
+                              borderColor: "#dddddd",
+                            },
+                          };
+                        },
+
+                        valueContainer: (provided, state) => ({
+                          ...provided,
+                        }),
+                        input: (provided, state) => ({
+                          ...provided,
+                        }),
+                        indicatorsContainer: (provided, state) => ({
+                          ...provided,
+                        }),
+                        indicatorSeparator: (provided, state) => ({
+                          ...provided,
+                          display: "none",
+                        }),
+                        dropdownIndicator: (provided, state) => ({
+                          ...provided,
+                        }),
+                        menu: (provided, state) => ({
+                          ...provided,
+                          paddingLeft: "4px",
+                          paddingRight: "4px",
+                        }),
+                        option: (provided, state) => ({
+                          ...provided,
+                          borderRadius: "4px",
+                          marginTop: "4px",
+                          marginBottom: "4px",
+                          color: "#4d4d4d",
+                          backgroundColor: "transparent",
+                          "&:hover": {
+                            backgroundColor: "#eeeeee",
+                          },
+                        }),
+                        menuList: (provided, state) => ({
+                          ...provided,
+                          "&::-webkit-scrollbar": {
+                            width: "7.2px",
+                            height: "0px",
+                          },
+                          "&::-webkit-scrollbar-track": {
+                            background: "transparent",
+                          },
+                          "&::-webkit-scrollbar-thumb": {
+                            background: "#ddddde",
+                            borderRadius: "9999px",
+                          },
+                        }),
                       }}
                     />
                   );
