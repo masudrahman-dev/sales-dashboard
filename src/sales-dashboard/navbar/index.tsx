@@ -1,43 +1,53 @@
-import { BellAlert, MagnifyingGlass } from "@medusajs/icons";
-import React, { useState } from "react";
+import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import Select, { StylesConfig } from "react-select";
-import { ColourOption, colourOptions } from "./next-select/data";
+import Select, { StylesConfig, components } from "react-select";
+
+import { colourOptions, countryOptions } from "./next-select/data";
 import chroma from "chroma-js";
-import { Bars2Icon } from "@heroicons/react/24/solid";
-const dot = (color = "transparent") => ({
-  alignItems: "center",
-  display: "flex",
+import { MagnifyingGlass, TriangleDownMini } from "@medusajs/icons";
 
-  ":before": {
-    backgroundColor: color,
-    borderRadius: 10,
-    content: '" "',
-    display: "block",
-    marginRight: 8,
-    height: 10,
-    width: 10,
-  },
-});
-
-const colorStyles: StylesConfig = {
-  input: (base, props) => {
+const countryStyles: StylesConfig = {
+  control: (baseStyle, state) => {
     return {
-      ...base,
-    };
-  },
-  container(base, props) {
-    return {
-      ...base,
-      width: "200px",
-
-      borderRadius: 0,
+      ...baseStyle,
+      fontSize: "16px",
+      height: "64px",
+      borderRadius: "8px",
+      paddingLeft: "20px",
+      paddingRight: "20px",
+      borderColor: "#AFAFAF",
+      boxShadow: "none",
+      "&:hover": {
+        borderColor: "#dddddd",
+      },
     };
   },
 };
+const CustomDropdownIndicator = (props) => {
+  return (
+    <CustomDropdownIndicator {...props}>
+      <TriangleDownMini />
+    </CustomDropdownIndicator>
+  );
+};
 
+const formatOptionLabel = ({ label }: { label: string }) => (
+  <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+    <div>
+      <img
+        src="https://flagcdn.com/16x12/ua.png"
+        srcSet="https://flagcdn.com/32x24/ua.png 2x,
+    https://flagcdn.com/48x36/ua.png 3x"
+        width="16"
+        height="12"
+        alt="Ukraine"
+      />
+    </div>
+    {label}
+  </div>
+);
 const Navbar = () => {
-  const { control, register, watch, handleSubmit } = useForm();
+  const { control, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     console.log("data :>> ", data);
@@ -50,78 +60,25 @@ const Navbar = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex justify-between items-center space-x-2"
         >
-          <button type="submit" className="text-2xl hidden md:block font-bold">
-            Dashboard
-          </button>
-          <button type="submit" className="text-2xl block  md:hidden font-bold">
-            <Bars2Icon className="w-5 h-5 text-primary" />
-          </button>
-          <div className="flex-grow">
-            <label
-              className="flex items-center justify-center space-x-1"
-              htmlFor="search"
-            >
-              <div className="relative">
-                <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                  <MagnifyingGlass className="w-5 h-5 text-primary" />
-                </span>
-                <input
-                  type="search"
-                  placeholder="Search Here..."
-                  className="block  pl-10 pr-3 py-2 rounded-lg placeholder-gray-400 focus:outline-none focus:ring-2 bg-secondary focus:ring-primary "
-                  name="search"
-                  id="search"
-                />
-              </div>
-            </label>
-          </div>
-
           <div className="border">
-            <div>
+            {/* <div>
               <Controller
                 control={control}
-                name="firstName"
-                defaultValue={""}
-                render={({ field: { onChange, onBlur, value, ref } }) => (
-                  <>
+                name="country"
+                render={({ field: { onChange, value } }) => {
+                  return (
                     <Select
+                      value={value}
                       onChange={onChange}
-                      onBlur={onBlur} // notify when input is touched
-                      value={value} // return updated value
-                      ref={ref} // set ref for focus management
-                      defaultValue={colourOptions[0]}
-                      isSearchable={true}
-                      name="color"
                       options={colourOptions}
-                      styles={colorStyles}
-                      theme={(theme) => {
-                        return {
-                          ...theme,
-                        };
-                      }}
+                      defaultValue={countryOptions[0]}
+                      isSearchable
+                      classNamePrefix="react-select"
                     />
-                  </>
-                )}
+                  );
+                }}
               />
-            </div>
-          </div>
-          <div>
-            <BellAlert />
-          </div>
-          <div>
-            <div>
-              <div className="flex gap-3">
-                <img
-                  className="rounded-lg w-10 h-10 "
-                  src="https://picsum.photos/id/1/100/100"
-                  alt=""
-                />
-                <div>
-                  <p>Musfiq</p>
-                  <p>Admin</p>
-                </div>
-              </div>
-            </div>
+            </div> */}
           </div>
         </form>
       </nav>

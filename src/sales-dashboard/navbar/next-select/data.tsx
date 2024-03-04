@@ -1,5 +1,17 @@
 import { BellAlert } from "@medusajs/icons";
 import { ReactNode } from "react";
+export const countryOptions = [
+  {
+    label: "United States",
+    flagUrl: "https://flagcdn.com/16x12/ua.png",
+  },
+  {
+    label: "United Kingdom",
+    flagUrl: "https://flagcdn.com/16x12/ua.png",
+  },
+  { label: "Canada", flagUrl: "https://flagcdn.com/16x12/ua.png" },
+  // Add more countries as needed
+];
 
 export interface ColourOption {
   readonly value: string;
