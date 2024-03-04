@@ -16,7 +16,7 @@ const App = () => {
           </div>
         </aside>
         <div className="relative ">
-          <main className="mt-12 px-6  fixed inset-0  left-72 overflow-y-auto ">
+          <main className="mt-12 px-6  fixed inset-0  md:left-72 left-0 overflow-y-auto ">
             <MainContent />
           </main>
         </div>
