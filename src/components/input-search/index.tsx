@@ -23,26 +23,3 @@ const InputSearch = () => {
 };
 
 export default InputSearch;
-
-// const a = (
-//   <>
-//     <div>
-//       <BellAlert />
-//     </div>
-//     <div>
-//       <div>
-//         <div className="flex gap-3">
-//           <img
-//             className="rounded-lg w-10 h-10 "
-//             src="https://picsum.photos/id/1/100/100"
-//             alt=""
-//           />
-//           <div>
-//             <p>Musfiq</p>
-//             <p>Admin</p>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   </>
-// );

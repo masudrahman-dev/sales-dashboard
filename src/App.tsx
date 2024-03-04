@@ -11,7 +11,7 @@ const App = () => {
       <Navbar />
       <div className="flex  ">
         <aside className="border hidden  md:block relative ">
-          <div className="h-screen fixed  overflow-y-auto px-3 min-w-72 space-y-3">
+          <div className="h-screen fixed  overflow-y-auto pl-3 min-w-72 ">
             <Sidebar />
           </div>
         </aside>
