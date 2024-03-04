@@ -4,6 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import Select, { StylesConfig } from "react-select";
 import { ColourOption, colourOptions } from "./next-select/data";
 import chroma from "chroma-js";
+import { Bars2Icon } from "@heroicons/react/24/solid";
 const dot = (color = "transparent") => ({
   alignItems: "center",
   display: "flex",
@@ -19,41 +20,20 @@ const dot = (color = "transparent") => ({
   },
 });
 
-const colorStyles: StylesConfig<ColourOption> = {
-  control: (styles) => ({ ...styles, backgroundColor: "white" }),
-  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-    const color = chroma(data.color);
+const colorStyles: StylesConfig = {
+  input: (base, props) => {
     return {
-      ...styles,
-      backgroundColor: isDisabled
-        ? undefined
-        : isSelected
-        ? data.color
-        : isFocused
-        ? color.alpha(0.1).css()
-        : undefined,
-      color: isDisabled
-        ? "#ccc"
-        : isSelected
-        ? chroma.contrast(color, "white") > 2
-          ? "white"
-          : "black"
-        : data.color,
-      cursor: isDisabled ? "not-allowed" : "default",
-
-      ":active": {
-        ...styles[":active"],
-        backgroundColor: !isDisabled
-          ? isSelected
-            ? data.color
-            : color.alpha(0.3).css()
-          : undefined,
-      },
+      ...base,
     };
   },
-  input: (styles) => ({ ...styles, ...dot() }),
-  placeholder: (styles) => ({ ...styles, ...dot("#ccc") }),
-  singleValue: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
+  container(base, props) {
+    return {
+      ...base,
+      width: "200px",
+
+      borderRadius: 0,
+    };
+  },
 };
 
 const Navbar = () => {
@@ -65,15 +45,17 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed left-0 md:left-72 bg-white right-0 top-0 p-3">
+      <nav className="fixed z-50 left-0 md:left-72 bg-white right-0 top-0 p-3">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex justify-between items-center space-x-2"
         >
-          <button type="submit" className="text-2xl font-bold">
+          <button type="submit" className="text-2xl hidden md:block font-bold">
             Dashboard
           </button>
-
+          <button type="submit" className="text-2xl block  md:hidden font-bold">
+            <Bars2Icon className="w-5 h-5 text-primary" />
+          </button>
           <div className="flex-grow">
             <label
               className="flex items-center justify-center space-x-1"
@@ -100,26 +82,23 @@ const Navbar = () => {
                 control={control}
                 name="firstName"
                 defaultValue={""}
-                render={({
-                  field: { onChange, onBlur, value, ref },
-                  formState,
-                  fieldState,
-                }) => (
+                render={({ field: { onChange, onBlur, value, ref } }) => (
                   <>
                     <Select
                       onChange={onChange}
                       onBlur={onBlur} // notify when input is touched
                       value={value} // return updated value
                       ref={ref} // set ref for focus management
-                      className="basic-single"
-                      classNamePrefix="select"
                       defaultValue={colourOptions[0]}
-                      isDisabled={false}
-                      isClearable={true}
                       isSearchable={true}
                       name="color"
                       options={colourOptions}
                       styles={colorStyles}
+                      theme={(theme) => {
+                        return {
+                          ...theme,
+                        };
+                      }}
                     />
                   </>
                 )}
@@ -129,7 +108,6 @@ const Navbar = () => {
           <div>
             <BellAlert />
           </div>
-
           <div>
             <div>
               <div className="flex gap-3">

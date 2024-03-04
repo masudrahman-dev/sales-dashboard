@@ -1,13 +1,23 @@
+import { BellAlert } from "@medusajs/icons";
+import { ReactNode } from "react";
+
 export interface ColourOption {
   readonly value: string;
   readonly label: string;
   readonly color: string;
   readonly isFixed?: boolean;
   readonly isDisabled?: boolean;
+  icon?: ReactNode;
 }
 
 export const colourOptions: readonly ColourOption[] = [
-  { value: "ocean", label: "Ocean", color: "#00B8D9", isFixed: true },
+  {
+    value: "ocean",
+    label: "Ocean",
+    color: "#00B8D9",
+    isFixed: true,
+    icon: <BellAlert />,
+  },
   { value: "blue", label: "Blue", color: "#0052CC", isDisabled: true },
   { value: "purple", label: "Purple", color: "#5243AA" },
   { value: "red", label: "Red", color: "#FF5630", isFixed: true },
