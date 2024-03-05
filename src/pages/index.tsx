@@ -7,7 +7,7 @@ import { Spinner } from "@medusajs/icons";
 const IndexPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    navigate("/a/orders");
+    navigate("/a/dashboard");
   }, []);
 
   return (

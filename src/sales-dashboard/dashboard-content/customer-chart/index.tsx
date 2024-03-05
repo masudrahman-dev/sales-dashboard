@@ -58,7 +58,7 @@ import { useMeasure } from "react-use";
 import { v4 } from "uuid";
 import { KeyIcon } from "@heroicons/react/24/outline";
 
-const lastMonthTotal = (key) => {
+const lastMonthTotal = (key: string) => {
   if (key === "Last") {
     const t = data?.reduce((pre, acc) => {
       const total = pre + acc?.Last;
@@ -81,11 +81,11 @@ const renderLegend = (props) => {
     <ul className="flex   gap-3 justify-center">
       {payload.map((entry, index) => (
         <li key={v4()} className="text-center">
-          <p className="flex items-center gap-3 justify-center">
-            <KeyIcon className="w-4 h-4 " />
-            <span>{entry.value} Month</span>
+          <p className="flex items-center gap-1 justify-center">
+            <KeyIcon className="w-4 h-4 text-slate-500  " />
+            <span className="text-slate-500">{entry.value} Month</span>
           </p>
-          <span>${lastMonthTotal(entry?.value)}</span>
+          <span className="font-bold">${lastMonthTotal(entry?.value)}</span>
         </li>
       ))}
     </ul>
