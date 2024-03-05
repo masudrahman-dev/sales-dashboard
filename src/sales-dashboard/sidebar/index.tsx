@@ -1,5 +1,4 @@
 import { KeyIcon } from "@heroicons/react/20/solid";
-import { TvIcon } from "@heroicons/react/24/outline";
 import { BeakerIcon } from "@heroicons/react/24/solid";
 import { NavLink } from "react-router-dom";
 import { v4 } from "uuid";
