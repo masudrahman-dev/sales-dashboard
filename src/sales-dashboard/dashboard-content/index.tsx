@@ -6,6 +6,7 @@ import clx from "../../utils/clx";
 
 import VisitorsChart from "./visitors-chart";
 import RevenueChart from "./revenue-chart";
+import CustomerChart from "./customer-chart";
 
 const DashboardContent = () => {
   const containerStyle = "border rounded-lg shadow   p-6";
@@ -26,8 +27,13 @@ const DashboardContent = () => {
             <Title title="Total Revenue" />
             <RevenueChart />
           </div>
-          {/* <div className="border md:col-span-6">03</div> */}
-          <div className="border md:col-span-3">04</div>
+
+          <div className={clx("md:col-span-3", containerStyle)}>
+            <Title title="Customer Satisfaction" />
+            <CustomerChart />
+          </div>
+
+          {/* <div className="border md:col-span-3">04</div> */}
           <div className="border md:col-span-3">05</div>
           <div className="border md:col-span-6">06</div>
           <div className="border md:col-span-3">07</div>
