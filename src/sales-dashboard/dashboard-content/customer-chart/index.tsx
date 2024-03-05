@@ -78,7 +78,7 @@ const renderLegend = (props) => {
   const { payload } = props;
 
   return (
-    <ul className="flex   gap-3 justify-center">
+    <ul className="flex  mt-6 gap-3 justify-center">
       {payload.map((entry, index) => (
         <li key={v4()} className="text-center">
           <p className="flex items-center gap-1 justify-center">
@@ -106,7 +106,7 @@ const CustomerChart = () => {
             <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
           </linearGradient>
         </defs>
-        <XAxis />
+        {/* <XAxis hide={true} /> */}
         {/* <YAxis /> */}
         <CartesianGrid
           vertical={false}
