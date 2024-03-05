@@ -1,86 +1,121 @@
 import React from "react";
 import { useMeasure } from "react-use";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from "recharts";
-
-const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
+import {
+  BarChart,
+  Bar,
+  Rectangle,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  LabelList,
+} from "recharts";
 
 const data = [
   {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    name: "Jan",
+    Target: 4000,
+    Reality: 2400,
+    unique: 300,
   },
   {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    name: "Fab",
+    Target: 3000,
+    Reality: 1398,
+    unique: 2210,
   },
   {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: "Mar",
+    Target: 2000,
+    Reality: 3000,
+    unique: 2290,
   },
   {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    name: "Apr",
+    Target: 2780,
+    Reality: 3908,
+    unique: 2000,
   },
   {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: "May",
+    Target: 1890,
+    Reality: 4800,
+    unique: 2181,
   },
   {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    name: "Jun",
+    Target: 2390,
+    Reality: 3800,
+    unique: 2500,
   },
   {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    name: "Jul",
+    Target: 3490,
+    Reality: 4300,
+    unique: 2100,
+  },
+  {
+    name: "Aust",
+    Target: 3490,
+    Reality: 4300,
+    unique: 2100,
+  },
+  {
+    name: "Sep",
+    Target: 3490,
+    Reality: 4300,
+    unique: 2100,
+  },
+  {
+    name: "Oct",
+    Target: 3490,
+    Reality: 4300,
+    unique: 2100,
+  },
+  {
+    name: "Nov",
+    Target: 3490,
+    Reality: 4300,
+    unique: 2100,
+  },
+  {
+    name: "Dec",
+    Target: 3490,
+    Reality: 4300,
+    unique: 2100,
   },
 ];
 
-const getPath = (x, y, width, height) => {
-  return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${
-    y + height / 3
-  }
-  ${x + width / 2}, ${y}
-  C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${
-    x + width
-  }, ${y + height}
-  Z`;
-};
-
-const TriangleBar = (props) => {
-  const { fill, x, y, width, height } = props;
-
-  return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
-};
-
-export default function TargetVsReality() {
+const TargetVsReality = () => {
   const [ref, { width }] = useMeasure();
   return (
-    <div ref={ref} className="mt-6">
+    <div ref={ref} className="mt-6 overflow-auto">
       <BarChart width={width} height={300} data={data}>
-        <CartesianGrid strokeDasharray="3 3" />
+        <CartesianGrid
+          vertical={false}
+          fillOpacity={0.3}
+          strokeDasharray="12 12"
+        />
         <XAxis dataKey="name" />
         <YAxis />
-        <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />}>
-          {/* {data.map((entry, index) => {
-            console.log("entry :>> ", entry);
-            return <Cell key={`cell-${index}`} fill={colors[index % 20]} />;
-          })} */}
-        </Bar>
+        <Tooltip />
+        <Legend iconSize={16} iconType="square" />
+        <Bar
+          radius={[3, 3, 0, 0]}
+          barSize={13}
+          dataKey="Target"
+          fill="#22c55e"
+        />
+        <Bar
+          radius={[3, 3, 0, 0]}
+          barSize={13}
+          dataKey="Reality"
+          fill="#eab308"
+        ></Bar>
       </BarChart>
     </div>
   );
-}
+};
+
+export default TargetVsReality;
