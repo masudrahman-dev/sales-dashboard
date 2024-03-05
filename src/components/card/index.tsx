@@ -1,6 +1,7 @@
 import { ChartBar } from "@medusajs/icons";
 import React, { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
+import clx from "../../utils/clx";
 
 interface CardProps {
   children?: ReactNode;
@@ -8,6 +9,7 @@ interface CardProps {
   pageLink: string;
   title: string;
   total: string;
+  className?: string;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -16,9 +18,10 @@ const Card: React.FC<CardProps> = ({
   pageLink,
   title,
   total,
+  className,
 }) => {
   return (
-    <div className="bg-rose-200 p-5 rounded-lg space-y-2">
+    <div className={clx("bg-rose-200 p-5 rounded-lg space-y-2", className)}>
       <span className=" text-white w-8 h-8 rounded-full bg-rose-400 flex justify-center items-center">
         {icon ? icon : ""}
       </span>

@@ -14,23 +14,43 @@ const MainContent = () => {
           <div className="border rounded-lg shadow md:col-span-7 p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p>Today's Sales</p>
-                <p>Sales Summary</p>
+                <p className="text-xl font-bold">Today's Sales</p>
+                <p className="text-sm text-slate-500">Sales Summary</p>
               </div>
               <Button />
             </div>
-            <div>
-              <div className="bg-rose-200 p-5 rounded-lg space-y-2">
-                <span className=" text-white w-8 h-8 rounded-full bg-rose-400 flex justify-center items-center">
-                  <ChartBar />
-                </span>
-                <p className="font-bold text-xl">$1k</p>
-                <p className="text-slate-500 text-sm">Total Sales</p>
-                <NavLink className={"text-blue-500 block"} to={"/"}>
-                  +8% from yesterday
-                </NavLink>
-              </div>
-              <Card pageLink="/" title="Total Sales" total="$1k"  />
+            <div className="flex gap-3 justify-between mt-6">
+              <Card
+                key={v4()}
+                icon={<ChartBar />}
+                pageLink="/"
+                title="Total Sales"
+                total="$1k"
+              />
+              <Card
+                key={v4()}
+                className="bg-yellow-100"
+                icon={<ChartBar />}
+                pageLink="/"
+                title="Total Sales"
+                total="300"
+              />
+              <Card
+                className="bg-green-100"
+                key={v4()}
+                icon={<ChartBar />}
+                pageLink="/"
+                title="Total Sales"
+                total="5"
+              />
+              <Card
+                className="bg-indigo-100"
+                key={v4()}
+                icon={<ChartBar />}
+                pageLink="/"
+                title="Total Sales"
+                total="8"
+              />
             </div>
           </div>
           <div className="border md:col-span-5">
