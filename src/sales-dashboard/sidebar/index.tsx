@@ -51,7 +51,7 @@ const Sidebar = () => {
   const style =
     " hover:bg-primary block hover:text-white w-full flex rounded-lg w-full py-3 pl-4";
   return (
-    <div className=" border  pb-20">
+    <div className=" border h-screen overflow-hidden  pb-20">
       <div className="flex items-center  gap-3  pt-3 justify-center  ">
         <BeakerIcon className="h-6 w-6 text-blue-500" />
         <span className="text-primary font-bold text-2xl">Dabang</span>
@@ -80,18 +80,24 @@ const Sidebar = () => {
           })}
         </ul>
 
-        <div className="px-12 ">
-          <div className="w-full   rounded-lg self-end shadow-lg  mt-20 bg-primary h-60 text-white">
-            <div className="">
-              <div>
-                <TvIcon className="w-6 h-6" />
-                <h1>Dabang Pro</h1>
-                <p>
-                  Get Access <br /> to All Features{" "}
-                </p>
-                <button className="bg-white rounded-lg p-3 text-primary font-bold">
-                  Get Pro
-                </button>
+        <div className="mx-12 mt-20 shadow-lg bg-primary text-white rounded-lg relative ">
+          <div className="w-full    self-end    h-60 ">
+            <div className=" ">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50   ">
+                <div className="flex flex-col justify-center items-center">
+                  <TvIcon className="w-6 h-6  " />
+
+                  <h1 className=" font-bold">Dabang Pro</h1>
+                  <p className=" text-sm font-medium text-center py-3">
+                    Get Access <br /> to All Features{" "}
+                  </p>
+                </div>
+
+                <div className="w-36 h-10  shadow-lg border rounded-lg">
+                  <button className="bg-white w-full h-full  rounded-lg   block  text-primary font-bold">
+                    Get Pro
+                  </button>
+                </div>
               </div>
             </div>
           </div>
