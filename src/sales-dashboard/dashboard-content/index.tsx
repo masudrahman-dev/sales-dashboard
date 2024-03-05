@@ -7,6 +7,7 @@ import clx from "../../utils/clx";
 import VisitorsChart from "./visitors-chart";
 import RevenueChart from "./revenue-chart";
 import CustomerChart from "./customer-chart";
+import TargetVsReality from "./target-vs-reality";
 
 const DashboardContent = () => {
   const containerStyle = "border rounded-lg shadow   p-6";
@@ -33,8 +34,11 @@ const DashboardContent = () => {
             <CustomerChart />
           </div>
 
-          {/* <div className="border md:col-span-3">04</div> */}
-          <div className="border md:col-span-3">05</div>
+          <div className={clx("md:col-span-3", containerStyle)}>
+            <Title title="Target vs Reality" />
+            <TargetVsReality />
+          </div>
+          {/* <div className="border md:col-span-3">05</div> */}
           <div className="border md:col-span-6">06</div>
           <div className="border md:col-span-3">07</div>
           <div className="border md:col-span-3">07</div>
