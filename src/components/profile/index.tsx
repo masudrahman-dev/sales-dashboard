@@ -9,7 +9,7 @@ const Profile = () => {
     <>
       <div className="flex items-center space-x-6">
         <LanguageSelect />
-        <BellAlert />
+        <BellAlert className="text-yellow-500" />
 
         <div className="flex items-center gap-3">
           <img

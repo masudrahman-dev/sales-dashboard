@@ -49,19 +49,19 @@ const sidebarItems = [
 
 const Sidebar = () => {
   const style =
-    " hover:bg-primary block hover:text-white w-full text-center rounded-lg w-full py-3";
+    " hover:bg-primary block hover:text-white w-full flex rounded-lg w-full py-3 pl-4";
   return (
-    <div className=" border h-screen  overflow-y-auto pb-20">
-      <div className="flex items-center gap-3  pt-3 justify-center  ">
+    <div className=" border  pb-20">
+      <div className="flex items-center  gap-3  pt-3 justify-center  ">
         <BeakerIcon className="h-6 w-6 text-blue-500" />
         <span className="text-primary font-bold text-2xl">Dabang</span>
       </div>
 
       <div className="mt-10">
-        <ul role="list" className=" mx-3 flex flex-col gap-3  ">
+        <ul role="list" className=" px-12   ">
           {sidebarItems.map((item, i) => {
             return (
-              <li key={v4()} className=" w-full text-center text-xl ">
+              <li key={v4()} className="  text-center text-xl ">
                 <NavLink
                   to={`/a/${item?.path}`}
                   className={({ isActive }) =>
@@ -70,7 +70,7 @@ const Sidebar = () => {
                     )
                   }
                 >
-                  <p className="inline-flex items-center  justify-center gap-3  w-full">
+                  <p className="inline-flex items-center   gap-3  ">
                     <span className="w-5 h-5">{item?.icon}</span>
                     <span>{item?.label}</span>
                   </p>
@@ -81,7 +81,7 @@ const Sidebar = () => {
         </ul>
 
         <div className="px-12 ">
-          <div className="w-full   rounded-lg self-end shadow-lg  mt-32 bg-primary h-60 text-white">
+          <div className="w-full   rounded-lg self-end shadow-lg  mt-20 bg-primary h-60 text-white">
             <div className="">
               <div>
                 <TvIcon className="w-6 h-6" />
