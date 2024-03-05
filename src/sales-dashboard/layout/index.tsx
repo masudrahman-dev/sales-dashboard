@@ -12,11 +12,12 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <div className="flex  ">
           <aside className="border hidden  md:block relative ">
             <div className=" fixed  min-w-72 ">
-              <Sidebar />
+              {/* <Sidebar /> */}
             </div>
           </aside>
           <div className="relative ">
-            <main className="mt-12 px-6  fixed inset-0  md:left-72 left-0 overflow-y-auto ">
+            {/* md:left-72 */}
+            <main className="mt-12 px-6  fixed inset-0   left-0 overflow-y-auto ">
               {children}
             </main>
           </div>

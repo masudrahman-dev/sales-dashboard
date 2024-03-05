@@ -13,6 +13,7 @@ export default {
         },
       },
     },
+
     keyframes: {
       slideDownAndFade: {
         from: { opacity: "0", transform: "translateY(-2px)" },

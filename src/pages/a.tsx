@@ -3,7 +3,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { useHotkeys } from "react-hotkeys-hook";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Layout from "../sales-dashboard/layout";
-import MainContent from "../sales-dashboard/main-content";
+import DashboardContent from "../sales-dashboard/dashboard-content";
 
 const DashboardIndexPage = () => {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ const DashboardRoutes = () => {
     <DndProvider backend={HTML5Backend}>
       <Layout>
         <Routes>
-          <Route path="/dashboard" element={<MainContent />} />
+          <Route path="/dashboard" element={<DashboardContent />} />
         </Routes>
       </Layout>
     </DndProvider>
