@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from "tailwindcss/defaultTheme";
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -13,7 +14,9 @@ export default {
         },
       },
     },
-
+    fontFamily: {
+      poppins: ["Poppins"],
+    },
     keyframes: {
       slideDownAndFade: {
         from: { opacity: "0", transform: "translateY(-2px)" },

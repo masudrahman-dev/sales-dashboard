@@ -54,7 +54,9 @@ const Sidebar = () => {
     <div className=" border h-screen overflow-hidden  pb-20">
       <div className="flex items-center  gap-3  py-6 justify-center  ">
         <BeakerIcon className="h-6 w-6 text-blue-500" />
-        <span className="text-primary font-bold text-2xl">Dabang</span>
+        <span className="text-primary font-bold text-2xl font-Poppins">
+          Dabang
+        </span>
       </div>
 
       <div>
