@@ -110,9 +110,9 @@ const renderLegend = (props) => {
                     })}
                   />
                 </span>
-                <p className="text-start">
-                  <p className="text-slate-500">{entry.value} Sales</p>
-                  <p>Test</p>
+                <p className="text-start w-full">
+                  <p className="text-slate-500 text-sm">{entry.value} Sales</p>
+                  <p className="text-xs">Test</p>
                 </p>
               </div>
               <p
