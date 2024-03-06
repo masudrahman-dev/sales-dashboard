@@ -111,7 +111,6 @@ const VisitorsChart = () => {
         <XAxis dataKey="name" tick={{ fontSize: 12 }} />
         <YAxis />
         <Tooltip
-          active={true}
           itemStyle={{
             fontSize: 14,
             paddingTop: 0,
@@ -121,7 +120,7 @@ const VisitorsChart = () => {
           contentStyle={{
             borderRadius: 8,
           }}
-          allowEscapeViewBox={{ x: false, y: false }}
+          // allowEscapeViewBox={{ x: false, y: false }}
           // formatter={(value, name, props) => {
           //   return [value, name];
           // }}

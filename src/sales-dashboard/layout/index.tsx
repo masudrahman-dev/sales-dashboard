@@ -15,7 +15,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
           </aside>
           <div className="relative  ">
             {/* md:left-72 */}
-            <main className="pt-40 md:pt-12  px-6 md:left-72 fixed inset-0   left-0 overflow-y-auto ">
+            <main className="pt-40 md:pt-12  bg-gray-100 px-6 md:left-72 fixed inset-0   left-0 overflow-y-auto ">
               {children}
             </main>
           </div>

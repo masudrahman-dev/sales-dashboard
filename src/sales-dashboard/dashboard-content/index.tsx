@@ -10,10 +10,10 @@ import CustomerChart from "./customer-chart";
 import TargetVsReality from "./target-vs-reality";
 
 const DashboardContent = () => {
-  const containerStyle = "border rounded-lg shadow   p-6";
+  const containerStyle = " rounded-lg shadow  bg-white  p-6";
   return (
     <div className="">
-      <div className="pt-10">
+      <div className=" mt-14">
         <div className="grid grid-cols-1 md:grid-cols-12   gap-4">
           <div className={clx("md:col-span-7", containerStyle)}>
             <Sales />

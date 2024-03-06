@@ -52,12 +52,12 @@ const Sidebar = () => {
     " hover:bg-primary block hover:text-white w-full flex rounded-lg w-full py-3 pl-4";
   return (
     <div className=" border h-screen overflow-hidden  pb-20">
-      <div className="flex items-center  gap-3  pt-3 justify-center  ">
+      <div className="flex items-center  gap-3  py-6 justify-center  ">
         <BeakerIcon className="h-6 w-6 text-blue-500" />
         <span className="text-primary font-bold text-2xl">Dabang</span>
       </div>
 
-      <div className="mt-10">
+      <div>
         <ul role="list" className=" px-12   ">
           {sidebarItems.map((item, i) => {
             return (

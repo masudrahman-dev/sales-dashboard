@@ -15,10 +15,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed border z-50 left-0 md:left-72 bg-white right-0 top-0 py-3 px-6">
+      <nav className="fixed  z-50 left-0 md:left-72 bg-white right-0 top-0 p-6 ">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col md:flex-row justify-between items-center gap-3">
-            <h1 className="font-bold text-xl">Dashboard</h1>
+            <h1 className="font-bold text-2xl">Dashboard</h1>
             <InputSearch />
             <Profile />
           </div>

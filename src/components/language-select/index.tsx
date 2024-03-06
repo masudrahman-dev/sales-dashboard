@@ -52,8 +52,9 @@ const LanguageSelect = () => {
                     ...provided,
 
                     borderColor: "#AFAFAF",
+                    borderStyle: "none",
                     borderRadius: "8px",
-                    boxShadow: "none",
+                    boxShadow: "0px 2px 5px 0px #00000069",
                     "&:hover": {
                       borderColor: "#dddddd",
                     },

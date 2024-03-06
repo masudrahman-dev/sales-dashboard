@@ -15,7 +15,7 @@ const Sales = () => {
           icon={<Button />}
         />
       </div>
-      <div className="flex gap-3 flex-col md:flex-row justify-between mt-6">
+      <div className="grid md:grid-cols-4 grid-cols-1 gap-3  mt-6">
         <Card
           key={v4()}
           icon={<ChartBar />}
